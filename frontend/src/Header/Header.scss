@@ -1,0 +1,82 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 12vh;
+  width: 100vw;
+
+  background-color: #02172a;
+  color: white;
+
+  #left-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    #logo {
+      padding: 5vw;
+      font-size: xx-large;
+
+      &:hover {
+        color: #4aead1;
+        cursor: pointer;
+      }
+    }
+
+    #section {
+      padding: 2vw;
+      margin-left: 15vw;
+      font-size: x-large;
+
+      &:hover {
+        color: #4aead1;
+        cursor: pointer;
+      }
+    }
+
+    #date {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2vw;
+      margin-left: 5vw;
+
+      #weekday,
+      #year {
+        font-size: smaller;
+      }
+
+      #month-day {
+        font-size: x-large;
+      }
+
+      &:hover {
+        color: #4aead1;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #right-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    #stars {
+      padding: 2vw;
+      font-size: x-large;
+    }
+
+    #initials {
+      padding: 5vw;
+      font-size: x-large;
+
+      &:hover {
+        color: #4aead1;
+        cursor: pointer;
+      }
+    }
+  }
+}
