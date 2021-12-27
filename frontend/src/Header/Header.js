@@ -1,12 +1,13 @@
 import "./Header.scss";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <header>
       <div id="left-header">
-        <div id="logo">happii</div>
-        <div id="section">Water</div>
+        <div id="logo"><Link to="/">happii</Link></div>
+        <div id="section"><Link to="/water">Water</Link></div>
         <div id="date">
           <div id="weekday">Saturday</div>
           <div id="month-day">Jan. 1</div>

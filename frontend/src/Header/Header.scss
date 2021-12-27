@@ -79,4 +79,13 @@ header {
       }
     }
   }
+
+  a:-webkit-any-link {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: #4aead1;
+    }
+  }
 }
