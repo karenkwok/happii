@@ -1,3 +1,4 @@
+import "./Water.scss";
 import { WaterTrack } from "./WaterTrack/WaterTrack";
 import { WaterTrends } from "./WaterTrends/WaterTrends";
 import { WaterLeaderboard } from "./WaterLeaderboard/WaterLeaderboard";
