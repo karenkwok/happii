@@ -1,0 +1,77 @@
+#watertrack-body {
+  background-color: white;
+  color: #02172a;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  #streak {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.25em;
+  }
+
+  #icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    #cup {
+      margin-left: 12vw;
+      margin-right: 12vw;
+      font-size: 10em;
+    }
+
+    .plus-minus {
+      font-size: 3em;
+      cursor: pointer;
+    }
+  }
+
+  #progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    #num-cups {
+      font-size: 3em;
+    }
+
+    #bar-percentage {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3rem;
+
+      #bar {
+        background: #02172a;
+        border-radius: 13px;
+        height: 20px;
+        width: 300px;
+        padding: 3px;
+      }
+
+      #bar:after {
+        content: "";
+        display: block;
+        background: #08b3e5;
+        width: 50%;
+        height: 100%;
+        border-radius: 9px;
+      }
+
+      #percentage {
+        margin-left: 1rem;
+        font-size: 1.5em;
+      }
+    }
+
+    #reset {
+      margin-top: 1rem;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  }
+}
