@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,45 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# CSRF Cookie
+
+# https://docs.djangoproject.com/en/3.2/ref/settings/#csrf-cookie-httponly
+
+CSRF_COOKIE_HTTPONLY = True
+
+# https://docs.djangoproject.com/en/3.2/ref/settings/#csrf-cookie-samesite
+
+CSRF_COOKIE_SAMESITE = 'Strict'
+
+# https://docs.djangoproject.com/en/3.2/ref/settings/#csrf-cookie-secure
+if DEBUG == False:
+    CSRF_COOKIE_SECURE = True
+
+# Session Cookie
+
+# https://docs.djangoproject.com/en/3.2/ref/settings/#session-cookie-httponly
+
+SESSION_COOKIE_HTTPONLY = True
+
+# https://docs.djangoproject.com/en/3.2/ref/settings/#session-cookie-samesite
+
+SESSION_COOKIE_SAMESITE = 'Strict'
+
+# https://docs.djangoproject.com/en/3.2/ref/settings/#session-cookie-secure
+
+if DEBUG == False:
+    SESSION_COOKIE_SECURE = True
+
+# Django REST framework
+# https://www.django-rest-framework.org/api-guide/settings/
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+}
