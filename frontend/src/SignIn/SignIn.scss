@@ -1,0 +1,64 @@
+#signin-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+
+  #signin-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+    height: 60vh;
+    width: 50vw;
+
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    background-color: white;
+    color: #02172a;
+
+    #signin-welcome {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .signin-input {
+      height: 2rem;
+      width: 20rem;
+      margin-top: 1rem;
+    }
+
+    #signin-submit {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding: 0.75rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      border: none;
+      border-radius: 20px;
+      font-size: medium;
+
+      background-color: #08b3e5;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0280a7;
+      }
+    }
+
+    #signin-signup {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    a:-webkit-any-link {
+      color: #02172a;
+    }
+  }
+}
