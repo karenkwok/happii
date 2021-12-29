@@ -1,4 +1,6 @@
 import "./App.scss";
+import SignIn from "./SignIn/SignIn";
+import SignUp from "./SignUp/SignUp";
 import Header from "./Header/Header";
 import { Home } from "./Home/Home";
 import { Water } from "./Water/Water";
@@ -16,6 +18,8 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
         <Routes>
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Home />} />
           <Route path="/water" element={<Water />}>
             <Route path="/water/track" element={<WaterTrack />} />
