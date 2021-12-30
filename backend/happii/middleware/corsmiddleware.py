@@ -11,6 +11,7 @@ class CORSMiddleware:
 
         # Code to be executed for each request/response after
         # the view is called.
-        response["Access-Control-Allow-Origin"] = "*"
-
+        response["Access-Control-Allow-Origin"] = "http://localhost:3000"
+        response["Access-Control-Allow-Headers"] = "Content-Type"
+        response["Access-Control-Allow-Credentials"] = "true"
         return response
