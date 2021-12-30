@@ -1,6 +1,6 @@
 import "./SignIn.scss";
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SignIn() {
   return (
@@ -17,7 +17,7 @@ function SignIn() {
         <div>
           <input
             class="signin-input"
-            type="text"
+            type="password"
             placeholder="Password"
           ></input>
         </div>
@@ -26,7 +26,9 @@ function SignIn() {
             Sign In
           </button>
         </div>
-        <Link to="/signup" id="signin-signup">Don't have an account? Sign up here.</Link>
+        <Link to="/signup" id="signin-signup">
+          Don't have an account? Sign up here.
+        </Link>
       </div>
     </div>
   );
