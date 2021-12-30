@@ -13,11 +13,12 @@ class SignUpView(APIView):
     def post(request):
         username = request.data.get('username')
         password = request.data.get('password')
+        email = request.data.get('email')
         if username is None or password is None:
-            return Response('Please provide username and password.', status=status.HTTP_400_BAD_REQUEST)
+            return Response('Please provide username, password, and email.', status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            user = User.objects.create_user(username, password=password)
+            user = User.objects.create_user(username, password=password, email=email)
             # this will add both a session and csrf cookies
             login(request, user)
             return Response({"username": user.username}, status=status.HTTP_201_CREATED)
