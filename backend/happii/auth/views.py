@@ -20,7 +20,7 @@ class SignUpView(APIView):
             user = User.objects.create_user(username, password=password)
             # this will add both a session and csrf cookies
             login(request, user)
-            return Response("User created successfully.", status=status.HTTP_201_CREATED)
+            return Response({"username": user.username}, status=status.HTTP_201_CREATED)
         except IntegrityError:
             return Response("Username already taken.", status=status.HTTP_400_BAD_REQUEST)
 
@@ -39,7 +39,7 @@ class SignInView(APIView):
         else:
             # this will add both a session and csrf cookies
             login(request, user)
-            return Response('Successfully logged in.')
+            return Response({"username": user.username}, status=status.HTTP_201_CREATED)
 
 
 class SignOutView(APIView):
