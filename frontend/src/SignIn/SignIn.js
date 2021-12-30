@@ -17,7 +17,7 @@ function SignIn() {
         <div>
           <input
             class="signin-input"
-            type="text"
+            type="password"
             placeholder="Password"
           ></input>
         </div>

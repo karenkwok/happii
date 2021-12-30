@@ -20,7 +20,7 @@ function SignUp() {
         <div>
           <input
             class="signup-input"
-            type="text"
+            type="password"
             placeholder="Password"
           ></input>
         </div>
