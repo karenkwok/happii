@@ -55,7 +55,7 @@ export default SignIn;
 // createUser is the "thunk action creator"
 function signInActionCreator(username, password) {
   // createUserThunk is the "thunk function"
-  return async function createLogin(dispatch, getState) {
+  return async function signInAction(dispatch, getState) {
     const response = await post(`http://localhost:8000/auth/signin/`, {
       username,
       password,
