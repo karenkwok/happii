@@ -9,11 +9,18 @@ import { WaterTrends } from "./Water/WaterTrends/WaterTrends";
 import { WaterLeaderboard } from "./Water/WaterLeaderboard/WaterLeaderboard";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { defaults } from 'axios';
+import { defaults, get } from 'axios';
+import { setUser } from "./features/auth/authSlice";
+import { useDispatch } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+
   // make axios client save cookies
   defaults.withCredentials = true;
+
+  // get the user information through the session cookie
+  dispatch(getUserActionCreator());
 
   return (
     <Router>
@@ -37,3 +44,10 @@ function App() {
 }
 
 export default App;
+
+function getUserActionCreator() {
+  return async function getUserAction(dispatch, getState) {
+    const response = await get(`http://localhost:8000/auth/user/`);
+    dispatch(setUser(response.data));
+  };
+}
