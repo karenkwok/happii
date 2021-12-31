@@ -9,8 +9,12 @@ import { WaterTrends } from "./Water/WaterTrends/WaterTrends";
 import { WaterLeaderboard } from "./Water/WaterLeaderboard/WaterLeaderboard";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { defaults } from 'axios';
 
 function App() {
+  // make axios client save cookies
+  defaults.withCredentials = true;
+
   return (
     <Router>
       <Header></Header>
