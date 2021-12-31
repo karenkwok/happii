@@ -42,6 +42,13 @@ class SignInView(APIView):
             login(request, user)
             return Response({"username": user.username}, status=status.HTTP_201_CREATED)
 
+class UserView(APIView):
+    @staticmethod
+    def get(request):
+        if request.user.is_authenticated:
+            return Response({"username": request.user.username})
+        else:
+            return Response('You\'re not logged in.', status=status.HTTP_400_BAD_REQUEST)
 
 class SignOutView(APIView):
     @staticmethod
