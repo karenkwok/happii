@@ -12,7 +12,7 @@ function SignIn() {
 
   const onSignInFormSubmit = () => {
     // Calls the thunk action creator, and passes the thunk function to dispatch
-    dispatch(login(username, password));
+    dispatch(signInActionCreator(username, password));
   };
   const onUsernameChange = (event) => setUsername(event.target.value);
   const onPasswordChange = (event) => setPassword(event.target.value);
@@ -53,7 +53,7 @@ function SignIn() {
 export default SignIn;
 
 // createUser is the "thunk action creator"
-function login(username, password) {
+function signInActionCreator(username, password) {
   // createUserThunk is the "thunk function"
   return async function createLogin(dispatch, getState) {
     const response = await post(`http://localhost:8000/auth/signin/`, {
