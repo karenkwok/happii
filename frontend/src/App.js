@@ -5,6 +5,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.scss";
 import { setUser } from "./features/auth/authSlice";
 import Header from "./Header/Header";
+import Sidebar from "./Sidebar/Sidebar";
 import { Home } from "./Home/Home";
 import SignIn from "./SignIn/SignIn";
 import SignUp from "./SignUp/SignUp";
@@ -37,6 +38,7 @@ function App() {
   return (
     <div>
       <Header></Header>
+      <Sidebar></Sidebar>
       <Routes>
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
