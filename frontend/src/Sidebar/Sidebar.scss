@@ -1,0 +1,39 @@
+#sidebar-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  height: 100%;
+  width: 16vw;
+  position: fixed;
+  top: 12vh;
+  left: 0;
+  overflow-x: hidden;
+
+  background-color: #041e39;
+  color: white;
+
+  .sidebar-link {
+    width: 100%;
+    padding: 1rem;
+
+    a:-webkit-any-link {
+      font-size: large;
+      color: white;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: #1d3b5a;
+      cursor: pointer;
+    }
+  }
+
+  #selected-link {
+    background-color: #1d3b5a;
+
+    a:-webkit-any-link {
+      color: #4aead1;
+    }
+  }
+}
