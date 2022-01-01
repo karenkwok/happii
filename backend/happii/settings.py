@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+if DEBUG == True:
+    MIDDLEWARE.append('happii.middleware.corsmiddleware.CORSMiddleware')
 
 ROOT_URLCONF = 'happii.urls'
 
