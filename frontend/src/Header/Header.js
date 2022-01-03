@@ -1,6 +1,7 @@
 import "./Header.scss";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
   const today = new Date();
@@ -41,6 +42,10 @@ function Header() {
     stars = stars + star;
   }
 
+  const username = useSelector((state) =>
+    state.auth.user ? state.auth.user.username : null
+  );
+
   return (
     <header>
       <div id="left-header">
@@ -60,8 +65,8 @@ function Header() {
         </div>
       </div>
       <div id="right-header">
-        <div id="initials">KK</div>
         <div id="stars">{stars}</div>
+        <div id="initials">{username}</div>
       </div>
     </header>
   );
