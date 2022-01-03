@@ -34,6 +34,13 @@ function Header() {
   const day = days[today.getDay()];
   const month = months[today.getMonth()];
 
+  const numStars = 5;
+  const star = "⭐";
+  let stars = "";
+  for (let i = 0; i < numStars; i++) {
+    stars = stars + star;
+  }
+
   return (
     <header>
       <div id="left-header">
@@ -53,8 +60,8 @@ function Header() {
         </div>
       </div>
       <div id="right-header">
-        <div id="stars">⭐⭐⭐⭐⭐⭐⭐</div>
         <div id="initials">KK</div>
+        <div id="stars">{stars}</div>
       </div>
     </header>
   );
