@@ -66,7 +66,14 @@ function Header() {
       </div>
       <div id="right-header">
         <div id="stars">{stars}</div>
-        <div id="initials">{username}</div>
+        <div class="dropdown">
+          <button class="dropbtn" id="initials">
+            {username}
+          </button>
+          <div class="dropdown-content">
+            <a>Log Out</a>
+          </div>
+        </div>
       </div>
     </header>
   );
