@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 function Sidebar() {
   return (
     <div id="sidebar-body">
-      <div class="sidebar-link" id="selected-link">
-        <Link to="/water/track">Water Track</Link>
-      </div>
-      <div class="sidebar-link">
-        <Link to="/water/trends">Water Trends</Link>
-      </div>
-      <div class="sidebar-link">
-        <Link to="/water/leaderboard">Water Leaderboard</Link>
-      </div>
+      <Link to="/water/track" class="sidebar-link" id="selected-link">
+        Water Track
+      </Link>
+      <Link to="/water/trends" class="sidebar-link">
+        Water Trends
+      </Link>
+      <Link to="/water/leaderboard" class="sidebar-link">
+        Water Leaderboard
+      </Link>
     </div>
   );
 }
