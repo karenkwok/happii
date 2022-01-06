@@ -11,11 +11,16 @@ export function WaterTrack() {
   const [numerator, setNumerator] = React.useState(4);
   const minusFunction = () => {
     let newNumerator = numerator - 1;
-    if(newNumerator < 0) {
+    if (newNumerator < 0) {
       newNumerator = 0;
     }
     setNumerator(newNumerator);
-  }
+  };
+
+  const plusFunction = () => {
+    let newNumerator = numerator + 1;
+    setNumerator(newNumerator);
+  };
 
   return (
     <div id="watertrack-body">
@@ -28,11 +33,13 @@ export function WaterTrack() {
           <FontAwesomeIcon icon={faSquare} />
         </div>
         <div class="plus-minus">
-          <FontAwesomeIcon icon={faPlus} />
+          <FontAwesomeIcon icon={faPlus} id="plus" onClick={plusFunction} />
         </div>
       </div>
       <div id="progress">
-        <div id="num-cups">{numerator}/{denominator}</div>
+        <div id="num-cups">
+          {numerator}/{denominator}
+        </div>
         <div id="bar-percentage">
           <div id="bar"></div>
           <div id="percentage">{percentage}%</div>
