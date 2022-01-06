@@ -22,8 +22,12 @@ export function WaterTrack() {
   const plusFunction = () => {
     let newNumerator = numerator + 1;
     setNumerator(newNumerator);
+    if(percentage === 100) {
+      setPercentage(100);
+    }
+    else {
     setPercentage(Math.round((newNumerator / denominator) * 100));
-  };
+  }};
 
   const resetFunction = () => {
     setNumerator(0);
