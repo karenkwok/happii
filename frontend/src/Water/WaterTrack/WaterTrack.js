@@ -16,13 +16,18 @@ export function WaterTrack() {
       newNumerator = 0;
     }
     setNumerator(newNumerator);
-    setPercentage(Math.round(newNumerator / denominator * 100));
+    setPercentage(Math.round((newNumerator / denominator) * 100));
   };
 
   const plusFunction = () => {
     let newNumerator = numerator + 1;
     setNumerator(newNumerator);
-    setPercentage(Math.round(newNumerator / denominator * 100));
+    setPercentage(Math.round((newNumerator / denominator) * 100));
+  };
+
+  const resetFunction = () => {
+    setNumerator(0);
+    setPercentage(0);
   };
 
   return (
@@ -47,7 +52,9 @@ export function WaterTrack() {
           <div id="bar"></div>
           <div id="percentage">{percentage}%</div>
         </div>
-        <div id="reset">Reset</div>
+        <div id="reset" onClick={resetFunction}>
+          Reset
+        </div>
       </div>
     </div>
   );
