@@ -6,20 +6,23 @@ import { faMinus, faPlus, faSquare } from "@fortawesome/free-solid-svg-icons";
 export function WaterTrack() {
   const streak = 503;
   const denominator = 8;
-  const percentage = 50;
 
   const [numerator, setNumerator] = React.useState(4);
+  let [percentage, setPercentage] = React.useState(50);
+
   const minusFunction = () => {
     let newNumerator = numerator - 1;
     if (newNumerator < 0) {
       newNumerator = 0;
     }
     setNumerator(newNumerator);
+    setPercentage(Math.round(newNumerator / denominator * 100));
   };
 
   const plusFunction = () => {
     let newNumerator = numerator + 1;
     setNumerator(newNumerator);
+    setPercentage(Math.round(newNumerator / denominator * 100));
   };
 
   return (
