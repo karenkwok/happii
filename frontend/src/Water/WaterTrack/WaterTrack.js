@@ -10,7 +10,7 @@ export function WaterTrack() {
 
   return (
     <div id="watertrack-body">
-      <div id="streak">🔥 Streak:{streak}days</div>
+      <div id="streak">🔥 Streak: {streak} days</div>
       <div id="icons">
         <div class="plus-minus">
           <FontAwesomeIcon icon={faMinus} />
