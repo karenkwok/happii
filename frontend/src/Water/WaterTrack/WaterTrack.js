@@ -49,7 +49,9 @@ export function WaterTrack() {
           {numerator}/{denominator}
         </div>
         <div id="bar-percentage">
-          <div id="bar"></div>
+          <div id="bar">
+            <div id="actualprogressofthebar" style={{width: percentage + "%"}}></div>
+          </div>
           <div id="percentage">{percentage}%</div>
         </div>
         <div id="reset" onClick={resetFunction}>
