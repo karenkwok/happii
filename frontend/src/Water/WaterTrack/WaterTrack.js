@@ -1,19 +1,28 @@
 import "./WaterTrack.scss";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus, faSquare } from "@fortawesome/free-solid-svg-icons";
 
 export function WaterTrack() {
   const streak = 503;
-  const numerator = 4;
   const denominator = 8;
   const percentage = 50;
+
+  const [numerator, setNumerator] = React.useState(4);
+  const minusFunction = () => {
+    let newNumerator = numerator - 1;
+    if(newNumerator < 0) {
+      newNumerator = 0;
+    }
+    setNumerator(newNumerator);
+  }
 
   return (
     <div id="watertrack-body">
       <div id="streak">🔥 Streak: {streak} days</div>
       <div id="icons">
         <div class="plus-minus">
-          <FontAwesomeIcon icon={faMinus} />
+          <FontAwesomeIcon icon={faMinus} id="minus" onClick={minusFunction} />
         </div>
         <div id="cup">
           <FontAwesomeIcon icon={faSquare} />
