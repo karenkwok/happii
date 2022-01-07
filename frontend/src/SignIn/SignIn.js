@@ -23,7 +23,7 @@ function SignIn() {
         <div id="signin-welcome">Welcome!</div>
         <div>
           <input
-            class="signin-input"
+            className="signin-input"
             type="text"
             placeholder="Username"
             onChange={onUsernameChange}
@@ -31,7 +31,7 @@ function SignIn() {
         </div>
         <div>
           <input
-            class="signin-input"
+            className="signin-input"
             type="password"
             placeholder="Password"
             onChange={onPasswordChange}

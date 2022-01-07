@@ -25,7 +25,7 @@ function SignUp() {
         <div id="signup-welcome">Welcome!</div>
         <div>
           <input
-            class="signup-input"
+            className="signup-input"
             type="text"
             placeholder="Email"
             onChange={onEmailChange}
@@ -33,7 +33,7 @@ function SignUp() {
         </div>
         <div>
           <input
-            class="signup-input"
+            className="signup-input"
             type="text"
             placeholder="Username"
             onChange={onUsernameChange}
@@ -41,7 +41,7 @@ function SignUp() {
         </div>
         <div>
           <input
-            class="signup-input"
+            className="signup-input"
             type="password"
             placeholder="Password"
             onChange={onPasswordChange}

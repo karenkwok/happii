@@ -38,13 +38,13 @@ export function WaterTrack() {
     <div id="watertrack-body">
       <div id="streak">🔥 Streak: {streak} days</div>
       <div id="icons">
-        <div class="plus-minus">
+        <div className="plus-minus">
           <FontAwesomeIcon icon={faMinus} id="minus" onClick={minusFunction} />
         </div>
         <div id="cup">
           <FontAwesomeIcon icon={faSquare} />
         </div>
-        <div class="plus-minus">
+        <div className="plus-minus">
           <FontAwesomeIcon icon={faPlus} id="plus" onClick={plusFunction} />
         </div>
       </div>

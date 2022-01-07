@@ -66,11 +66,11 @@ function Header() {
       </div>
       <div id="right-header">
         <div id="stars">{stars}</div>
-        <div class="dropdown">
-          <button class="dropbtn" id="initials">
+        <div className="dropdown">
+          <button className="dropbtn" id="initials">
             {username}
           </button>
-          <div class="dropdown-content">
+          <div className="dropdown-content">
             <a>Log Out</a>
           </div>
         </div>
