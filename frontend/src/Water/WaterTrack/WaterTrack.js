@@ -109,7 +109,6 @@ function getDailyWaterActionCreator(date) {
     const response = await get(
       `http://localhost:8000/water/intake/?date=${date}`
     );
-    console.log(response);
     dispatch(setDailyWater(response.data));
   };
 }
