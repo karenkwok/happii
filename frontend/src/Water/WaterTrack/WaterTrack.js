@@ -1,11 +1,19 @@
 import './WaterTrack.scss';
+import { put } from 'axios';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faSquare } from '@fortawesome/free-solid-svg-icons';
 
 export function WaterTrack() {
+  const dispatch = useDispatch();
   const streak = 503;
   const denominator = 8;
+
+  let yourDate = new Date();
+  const offset = yourDate.getTimezoneOffset()
+  yourDate = new Date(yourDate.getTime() - (offset*60*1000))
+  const today = yourDate.toISOString().split('T')[0];
 
   const [numerator, setNumerator] = React.useState(4);
   let [percentage, setPercentage] = React.useState(50);
@@ -27,6 +35,7 @@ export function WaterTrack() {
     } else {
       setPercentage(Math.round((newNumerator / denominator) * 100));
     }
+    dispatch(waterTrackActionCreator(newNumerator, today));
   };
 
   const resetFunction = () => {
@@ -67,4 +76,15 @@ export function WaterTrack() {
       </div>
     </div>
   );
+}
+
+// createUser is the "thunk action creator"
+function waterTrackActionCreator(intake, date) {
+  // createUserThunk is the "thunk function"
+  return async function waterTrackAction(dispatch, getState) {
+    const response = await put(`http://localhost:8000/water/intake/?date=${date}`, {
+      intake,
+    });
+    // dispatch(setUser(response.data));
+  };
 }
