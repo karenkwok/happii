@@ -71,7 +71,7 @@ function Header() {
             {username}
           </button>
           <div className="dropdown-content">
-            <a>Log Out</a>
+            <div>Log Out</div>
           </div>
         </div>
       </div>
