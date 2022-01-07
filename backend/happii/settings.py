@@ -135,10 +135,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CSRF Cookie
 
-# https://docs.djangoproject.com/en/3.2/ref/settings/#csrf-cookie-httponly
-
-CSRF_COOKIE_HTTPONLY = True
-
 # https://docs.djangoproject.com/en/3.2/ref/settings/#csrf-cookie-samesite
 
 CSRF_COOKIE_SAMESITE = 'Strict'
