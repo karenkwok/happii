@@ -11,11 +11,10 @@ from happii.water.models import Intake
 class WaterIntake(APIView):
     @staticmethod
     def get(request):
-        start_date = request.query_params.get('start_date')
-        end_date = request.query_params.get('end_date')
+        date = request.query_params.get('date')
 
-        response = Intake.objects.filter(
-            date__range=[start_date, end_date], user=request.user).values('user_id', 'date', 'intake').order_by('user_id', 'date')
+        response = Intake.objects.get(
+            date=date, user=request.user).intake
         return Response(response)
 
     @staticmethod
