@@ -17,6 +17,8 @@ import { WaterTrends } from './Water/WaterTrends/WaterTrends';
 function App() {
   // make axios client save cookies
   defaults.withCredentials = true;
+  defaults.xsrfHeaderName = 'X-CSRFToken';
+  defaults.xsrfCookieName = 'csrftoken';
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
