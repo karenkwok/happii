@@ -1,14 +1,14 @@
-import { post } from "axios";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { setUser } from "../features/auth/authSlice";
-import "./SignUp.scss";
+import { post } from 'axios';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { setUser } from '../features/auth/authSlice';
+import './SignUp.scss';
 
 function SignUp() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const dispatch = useDispatch();
 
   const onSignUpFormSubmit = () => {
@@ -24,7 +24,12 @@ function SignUp() {
       <div id="signup-box">
         <div id="signup-welcome">Welcome!</div>
         <div>
-          <input class="signup-input" type="text" placeholder="Email" onChange={onEmailChange}></input>
+          <input
+            class="signup-input"
+            type="text"
+            placeholder="Email"
+            onChange={onEmailChange}
+          ></input>
         </div>
         <div>
           <input

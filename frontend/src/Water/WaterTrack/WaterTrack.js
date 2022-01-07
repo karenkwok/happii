@@ -1,7 +1,7 @@
-import "./WaterTrack.scss";
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus, faPlus, faSquare } from "@fortawesome/free-solid-svg-icons";
+import './WaterTrack.scss';
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus, faSquare } from '@fortawesome/free-solid-svg-icons';
 
 export function WaterTrack() {
   const streak = 503;
@@ -56,7 +56,7 @@ export function WaterTrack() {
           <div id="bar">
             <div
               id="actualprogressofthebar"
-              style={{ width: percentage + "%" }}
+              style={{ width: percentage + '%' }}
             ></div>
           </div>
           <div id="percentage">{percentage}%</div>

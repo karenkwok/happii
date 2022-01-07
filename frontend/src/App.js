@@ -1,18 +1,18 @@
-import { defaults, get } from "axios";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import "./App.scss";
-import { setUser } from "./features/auth/authSlice";
-import Header from "./Header/Header";
-import Sidebar from "./Sidebar/Sidebar";
-import { Home } from "./Home/Home";
-import SignIn from "./SignIn/SignIn";
-import SignUp from "./SignUp/SignUp";
-import { Water } from "./Water/Water";
-import { WaterLeaderboard } from "./Water/WaterLeaderboard/WaterLeaderboard";
-import { WaterTrack } from "./Water/WaterTrack/WaterTrack";
-import { WaterTrends } from "./Water/WaterTrends/WaterTrends";
+import { defaults, get } from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import './App.scss';
+import { setUser } from './features/auth/authSlice';
+import Header from './Header/Header';
+import Sidebar from './Sidebar/Sidebar';
+import { Home } from './Home/Home';
+import SignIn from './SignIn/SignIn';
+import SignUp from './SignUp/SignUp';
+import { Water } from './Water/Water';
+import { WaterLeaderboard } from './Water/WaterLeaderboard/WaterLeaderboard';
+import { WaterTrack } from './Water/WaterTrack/WaterTrack';
+import { WaterTrends } from './Water/WaterTrends/WaterTrends';
 
 function App() {
   // make axios client save cookies
@@ -30,10 +30,10 @@ function App() {
 
     if (username !== null) {
       // there is a valid user navigate them to the water track page
-      console.log("navigate them to the water track page");
-      navigate("/water/track");
+      console.log('navigate them to the water track page');
+      navigate('/water/track');
     } else {
-      navigate("/signin");
+      navigate('/signin');
     }
   }, [username]);
 

@@ -1,7 +1,7 @@
-import "./Header.scss";
-import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import './Header.scss';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Header() {
   const today = new Date();
@@ -9,35 +9,35 @@ function Header() {
   const year = today.getFullYear();
 
   const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
   ];
   const months = [
-    "Jan. ",
-    "Feb. ",
-    "Mar. ",
-    "Apr. ",
-    "May ",
-    "Jun. ",
-    "Jul. ",
-    "Aug. ",
-    "Sep. ",
-    "Oct. ",
-    "Nov. ",
-    "Dec. ",
+    'Jan. ',
+    'Feb. ',
+    'Mar. ',
+    'Apr. ',
+    'May ',
+    'Jun. ',
+    'Jul. ',
+    'Aug. ',
+    'Sep. ',
+    'Oct. ',
+    'Nov. ',
+    'Dec. ',
   ];
 
   const day = days[today.getDay()];
   const month = months[today.getMonth()];
 
   const numStars = 5;
-  const star = "⭐";
-  let stars = "";
+  const star = '⭐';
+  let stars = '';
   for (let i = 0; i < numStars; i++) {
     stars = stars + star;
   }

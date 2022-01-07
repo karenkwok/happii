@@ -1,13 +1,13 @@
-import { post } from "axios";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { setUser } from "../features/auth/authSlice";
-import "./SignIn.scss";
+import { post } from 'axios';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { setUser } from '../features/auth/authSlice';
+import './SignIn.scss';
 
 function SignIn() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
   const onSignInFormSubmit = () => {

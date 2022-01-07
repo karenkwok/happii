@@ -1,9 +1,9 @@
-import "./WaterTrends.scss";
-import React from "react";
+import './WaterTrends.scss';
+import React from 'react';
 
-import { DateRangePicker } from "rsuite";
-import "rsuite/styles/index.less";
-import "rsuite/dist/rsuite.min.css";
+import { DateRangePicker } from 'rsuite';
+import 'rsuite/styles/index.less';
+import 'rsuite/dist/rsuite.min.css';
 
 import {
   Chart as ChartJS,
@@ -14,8 +14,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
@@ -31,31 +31,31 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "top",
+      position: 'top',
     },
     title: {
       display: true,
-      text: "Water Trends",
+      text: 'Water Trends',
     },
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
 export const data = {
   labels,
   datasets: [
     {
-      label: "Karen",
+      label: 'Karen',
       data: [4, 2, 0, 9, 6, 8, 8],
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
     },
     {
-      label: "Jason",
+      label: 'Jason',
       data: [6, 9, 4, 0, 2, 7, 4],
-      borderColor: "rgb(53, 162, 235)",
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
+      borderColor: 'rgb(53, 162, 235)',
+      backgroundColor: 'rgba(53, 162, 235, 0.5)',
     },
   ],
 };

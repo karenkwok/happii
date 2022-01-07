@@ -1,6 +1,6 @@
-import "./Sidebar.scss";
-import React from "react";
-import { Link } from "react-router-dom";
+import './Sidebar.scss';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
   return (
