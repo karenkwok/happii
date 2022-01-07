@@ -1,22 +1,28 @@
 import './WaterTrack.scss';
-import { put } from 'axios';
+import { put, get } from 'axios';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faSquare } from '@fortawesome/free-solid-svg-icons';
+import { setDailyWater } from '../../features/water/waterSlice';
+import { useSelector } from 'react-redux';
 
 export function WaterTrack() {
+  const dailyWater = useSelector((state) =>
+    state.water.dailyWater
+  );
+
   const dispatch = useDispatch();
   const streak = 503;
   const denominator = 8;
 
   let yourDate = new Date();
-  const offset = yourDate.getTimezoneOffset()
-  yourDate = new Date(yourDate.getTime() - (offset*60*1000))
+  const offset = yourDate.getTimezoneOffset();
+  yourDate = new Date(yourDate.getTime() - offset * 60 * 1000);
   const today = yourDate.toISOString().split('T')[0];
 
-  const [numerator, setNumerator] = React.useState(4);
-  let [percentage, setPercentage] = React.useState(50);
+  const [numerator, setNumerator] = React.useState(dailyWater);
+  let [percentage, setPercentage] = React.useState(Math.round((dailyWater / denominator) * 100));
 
   const minusFunction = () => {
     let newNumerator = numerator - 1;
@@ -44,6 +50,8 @@ export function WaterTrack() {
     setPercentage(0);
     dispatch(waterTrackActionCreator(0, today));
   };
+
+  dispatch(getDailyWaterActionCreator(today));
 
   return (
     <div id="watertrack-body">
@@ -84,9 +92,23 @@ export function WaterTrack() {
 function waterTrackActionCreator(intake, date) {
   // createUserThunk is the "thunk function"
   return async function waterTrackAction(dispatch, getState) {
-    const response = await put(`http://localhost:8000/water/intake/?date=${date}`, {
-      intake,
-    });
+    const response = await put(
+      `http://localhost:8000/water/intake/?date=${date}`,
+      {
+        intake,
+      }
+    );
     // dispatch(setUser(response.data));
+  };
+}
+
+// createUser is the "thunk action creator"
+function getDailyWaterActionCreator(date) {
+  // createUserThunk is the "thunk function"
+  return async function getDailyWaterAction(dispatch, getState) {
+    const response = await get(
+      `http://localhost:8000/water/intake/?date=${date}`
+    );
+    dispatch(setDailyWater(response.data));
   };
 }
