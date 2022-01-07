@@ -13,10 +13,13 @@ class WaterIntake(APIView):
     def get(request):
         date = request.query_params.get('date')
 
-        response = Intake.objects.get(
-            date=date, user=request.user).intake
-        return Response(response)
-
+        try:
+            response = Intake.objects.get(
+                date=date, user=request.user).intake
+            return Response(response)
+        except Intake.DoesNotExist:
+            return Response(0)
+        
     @staticmethod
     def put(request):
         date = request.query_params.get('date')
