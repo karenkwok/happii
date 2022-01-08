@@ -2,11 +2,14 @@ import './Header.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { get } from 'axios';
+import { useDispatch } from 'react-redux';
 
 function Header() {
   const today = new Date();
   const dd = String(today.getDate());
   const year = today.getFullYear();
+  const dispatch = useDispatch();
 
   const days = [
     'Sunday',
@@ -46,6 +49,10 @@ function Header() {
     state.auth.user ? state.auth.user.username : null
   );
 
+  const logoutFunction = () => {
+    dispatch(logoutActionCreator());
+  }
+
   return (
     <header>
       <div id="left-header">
@@ -71,7 +78,7 @@ function Header() {
             {username}
           </button>
           <div className="dropdown-content">
-            <div>Log Out</div>
+            <div onClick={logoutFunction}>Log Out</div>
           </div>
         </div>
       </div>
@@ -80,3 +87,11 @@ function Header() {
 }
 
 export default Header;
+
+function logoutActionCreator() {
+  return async function logoutAction(dispatch, getState) {
+    const response = await get(
+      `http://localhost:8000/auth/signout/`
+    );
+  };
+}
