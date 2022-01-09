@@ -7,6 +7,17 @@ from happii.water.models import Intake
 
 # Create your views here.
 
+class WaterIntakeTrends(APIView):
+    @staticmethod
+    def get(request):
+        start_date = request.query_params.get('start_date')
+        end_date = request.query_params.get('end_date')
+        
+        response = Intake.objects.filter(
+            date__range=[start_date, end_date], user_id=request.user).values()
+        return Response(response)
+
+
 
 class WaterIntake(APIView):
     @staticmethod
@@ -19,7 +30,7 @@ class WaterIntake(APIView):
             return Response(response)
         except Intake.DoesNotExist:
             return Response(0)
-        
+
     @staticmethod
     def put(request):
         date = request.query_params.get('date')
