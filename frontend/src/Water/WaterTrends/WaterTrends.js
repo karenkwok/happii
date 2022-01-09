@@ -60,12 +60,27 @@ export const data = {
   ],
 };
 
+let startDate = "";
+let endDate = "";
+
+const dateChangeFunction = (date) => {
+  startDate = date[0];
+  endDate = date[1];
+
+  const offset = startDate.getTimezoneOffset();
+  startDate = new Date(startDate.getTime() - (offset*60*1000));
+  startDate = startDate.toISOString().split('T')[0];
+
+  endDate = new Date(endDate.getTime() - (offset*60*1000));
+  endDate = endDate.toISOString().split('T')[0];
+}
+
 export function WaterTrends() {
   return (
     <div id="watertrends-body">
       <div id="watertrends-box">
         Choose date range:
-        <DateRangePicker></DateRangePicker>
+        <DateRangePicker onOk={dateChangeFunction}></DateRangePicker>
         <div id="chart">
           <Line options={options} data={data} />
         </div>
