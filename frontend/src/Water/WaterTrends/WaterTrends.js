@@ -60,20 +60,20 @@ export const data = {
   ],
 };
 
-let startDate = "";
-let endDate = "";
+let startDate = '';
+let endDate = '';
 
 const dateChangeFunction = (date) => {
   startDate = date[0];
   endDate = date[1];
 
   const offset = startDate.getTimezoneOffset();
-  startDate = new Date(startDate.getTime() - (offset*60*1000));
+  startDate = new Date(startDate.getTime() - offset * 60 * 1000);
   startDate = startDate.toISOString().split('T')[0];
 
-  endDate = new Date(endDate.getTime() - (offset*60*1000));
+  endDate = new Date(endDate.getTime() - offset * 60 * 1000);
   endDate = endDate.toISOString().split('T')[0];
-}
+};
 
 export function WaterTrends() {
   return (
