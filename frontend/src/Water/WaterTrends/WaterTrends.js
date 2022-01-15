@@ -33,6 +33,10 @@ ChartJS.register(
 export function WaterTrends() {
   const dispatch = useDispatch();
 
+  const username = useSelector((state) =>
+    state.auth.user ? state.auth.user.username : null
+  );
+
   const waterTrends = useSelector((state) => state.water.waterTrends);
   console.log(waterTrends);
 
@@ -66,8 +70,8 @@ export function WaterTrends() {
     labels,
     datasets: [
       {
-        label: 'Jason',
-        data: [6, 9, 4, 0, 2, 7, 4],
+        label: username,
+        data: [],
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
