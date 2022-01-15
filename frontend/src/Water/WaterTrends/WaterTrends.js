@@ -38,7 +38,7 @@ export function WaterTrends() {
   );
 
   const waterTrends = useSelector((state) => state.water.waterTrends);
-  console.log(waterTrends);
+  const intakeData = waterTrends.map((day) => {return day.intake});
 
   const options = {
     responsive: true,
@@ -71,7 +71,7 @@ export function WaterTrends() {
     datasets: [
       {
         label: username,
-        data: [],
+        data: intakeData,
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
