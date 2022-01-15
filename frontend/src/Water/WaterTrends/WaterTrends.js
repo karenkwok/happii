@@ -49,15 +49,18 @@ export function WaterTrends() {
     },
   };
 
-  const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-  ];
+  var getDaysArray = function (start, end) {
+    for (
+      var arr = [], dt = new Date(start);
+      dt <= end;
+      dt.setDate(dt.getDate() + 1)
+    ) {
+      arr.push(new Date(dt));
+    }
+    return arr;
+  };
+
+  let [labels, setLabels] = React.useState([]);
 
   const data = {
     labels,
@@ -90,6 +93,9 @@ export function WaterTrends() {
 
     endDate = new Date(endDate.getTime() - offset * 60 * 1000);
     endDate = endDate.toISOString().split('T')[0];
+
+    var daylist = getDaysArray(new Date(startDate), new Date(endDate));
+    setLabels(daylist.map((v) => v.toISOString().slice(0, 10)));
 
     dispatch(getWaterTrendsActionCreator(startDate, endDate));
   };
