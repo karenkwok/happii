@@ -14,7 +14,7 @@ class WaterIntakeTrends(APIView):
         end_date = request.query_params.get('end_date')
         
         response = Intake.objects.filter(
-            date__range=[start_date, end_date], user_id=request.user).values()
+            date__range=[start_date, end_date], user_id=request.user).values().order_by("date")
         return Response(response)
 
 
