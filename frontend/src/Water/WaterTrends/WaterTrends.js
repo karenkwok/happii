@@ -66,12 +66,6 @@ export function WaterTrends() {
     labels,
     datasets: [
       {
-        label: 'Karen',
-        data: [4, 2, 0, 9, 6, 8, 8],
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
         label: 'Jason',
         data: [6, 9, 4, 0, 2, 7, 4],
         borderColor: 'rgb(53, 162, 235)',
