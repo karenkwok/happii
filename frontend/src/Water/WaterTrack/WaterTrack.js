@@ -1,16 +1,13 @@
 import './WaterTrack.scss';
 import { put, get } from 'axios';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faSquare } from '@fortawesome/free-solid-svg-icons';
 import { setDailyWater } from '../../features/water/waterSlice';
-import { useSelector } from 'react-redux';
 
 export function WaterTrack() {
-  const dailyWater = useSelector((state) =>
-    state.water.dailyWater
-  );
+  const dailyWater = useSelector((state) => state.water.dailyWater);
 
   const dispatch = useDispatch();
   const streak = 503;
@@ -22,7 +19,9 @@ export function WaterTrack() {
   const today = yourDate.toISOString().split('T')[0];
 
   const [numerator, setNumerator] = React.useState(dailyWater);
-  let [percentage, setPercentage] = React.useState(Math.round((dailyWater / denominator) * 100));
+  let [percentage, setPercentage] = React.useState(
+    Math.round((dailyWater / denominator) * 100)
+  );
 
   const minusFunction = () => {
     let newNumerator = numerator - 1;
