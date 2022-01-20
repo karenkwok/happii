@@ -38,7 +38,9 @@ export function WaterTrends() {
   );
 
   const waterTrends = useSelector((state) => state.water.waterTrends);
-  const intakeData = waterTrends.map((day) => {return day.intake});
+  const intakeData = waterTrends.map((day) => {
+    return day.intake;
+  });
 
   const options = {
     responsive: true,
@@ -78,6 +80,9 @@ export function WaterTrends() {
     ],
   };
 
+  let today = new Date();
+  let lastweek = new Date();
+  lastweek.setDate(lastweek.getDate() - 7);
   let startDate = '';
   let endDate = '';
 
@@ -102,7 +107,10 @@ export function WaterTrends() {
     <div id="watertrends-body">
       <div id="watertrends-box">
         Choose date range:
-        <DateRangePicker onOk={dateChangeFunction}></DateRangePicker>
+        <DateRangePicker
+          onOk={dateChangeFunction}
+          defaultValue={[lastweek, today]}
+        ></DateRangePicker>
         <div id="chart">
           <Line options={options} data={data} />
         </div>
