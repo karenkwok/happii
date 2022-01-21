@@ -1,5 +1,5 @@
 import './WaterTrends.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { get } from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setWaterTrends } from '../../features/water/waterSlice';
@@ -102,6 +102,10 @@ export function WaterTrends() {
 
     dispatch(getWaterTrendsActionCreator(startDate, endDate));
   };
+
+  useEffect(() => {
+    dateChangeFunction([lastweek, today]);
+  }, [lastweek.toISOString().slice(0,10), today.toISOString().slice(0,10)]);
 
   return (
     <div id="watertrends-body">
