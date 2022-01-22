@@ -13,11 +13,14 @@ class SignUpView(APIView):
 
     @staticmethod
     def post(request):
-        username = request.data.get('username')
-        password = request.data.get('password')
-        email = request.data.get('email')
+        username = request.data.get("username")
+        password = request.data.get("password")
+        email = request.data.get("email")
         if username is None or password is None:
-            return Response('Please provide username, password, and email.', status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                "Please provide username, password, and email.",
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         try:
             user = User.objects.create_user(username, password=password, email=email)
@@ -25,7 +28,9 @@ class SignUpView(APIView):
             login(request, user)
             return Response({"username": user.username}, status=status.HTTP_201_CREATED)
         except IntegrityError:
-            return Response("Username already taken.", status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                "Username already taken.", status=status.HTTP_400_BAD_REQUEST
+            )
 
 
 class SignInView(APIView):
@@ -33,18 +38,22 @@ class SignInView(APIView):
 
     @staticmethod
     def post(request):
-        username = request.data.get('username')
-        password = request.data.get('password')
+        username = request.data.get("username")
+        password = request.data.get("password")
         if username is None or password is None:
-            return Response('Please provide username and password.', status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                "Please provide username and password.",
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         user = authenticate(username=username, password=password)
         if user is None:
-            return Response('Invalid credentials.', status=status.HTTP_400_BAD_REQUEST)
+            return Response("Invalid credentials.", status=status.HTTP_400_BAD_REQUEST)
         else:
             # this will add both a session and csrf cookies
             login(request, user)
             return Response({"username": user.username}, status=status.HTTP_201_CREATED)
+
 
 class UserView(APIView):
     permission_classes = []
@@ -54,7 +63,8 @@ class UserView(APIView):
         if request.user.is_authenticated:
             return Response({"username": request.user.username})
         else:
-            return Response('You\'re not logged in.', status=status.HTTP_400_BAD_REQUEST)
+            return Response("You're not logged in.", status=status.HTTP_400_BAD_REQUEST)
+
 
 class SignOutView(APIView):
     permission_classes = []
@@ -62,7 +72,7 @@ class SignOutView(APIView):
     @staticmethod
     def get(request):
         if not request.user.is_authenticated:
-            return Response('You\'re not logged in.', status=status.HTTP_400_BAD_REQUEST)
+            return Response("You're not logged in.", status=status.HTTP_400_BAD_REQUEST)
         else:
             logout(request)
-            return Response('Successfully logged out.')
+            return Response("Successfully logged out.")

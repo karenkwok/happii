@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('auth/', include('happii.auth.urls')),
-    path('water/', include('happii.water.urls')),
+    path("admin/", admin.site.urls),
+    path("auth/", include("happii.auth.urls")),
+    path("water/", include("happii.water.urls")),
 ]
