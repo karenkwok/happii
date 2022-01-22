@@ -60,9 +60,9 @@ class WaterIntake(APIView):
 class WaterStreak(APIView):
     @staticmethod
     def get(request):
-        latest_date_of_broken_streak = Intake.objects.filter(intake__lt=8).latest(
-            "date"
-        )
+        latest_date_of_broken_streak = Intake.objects.filter(
+            user=request.user, intake__lt=8
+        ).latest("date")
         today = datetime.date.today()
         delta = today - latest_date_of_broken_streak.date
         return Response(delta.days)
