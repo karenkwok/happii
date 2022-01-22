@@ -1,9 +1,9 @@
+import datetime
+
+from happii.water.models import Intake
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
-from happii.water.models import Intake
-
 
 # Create your views here.
 
@@ -12,11 +12,10 @@ class WaterIntakeTrends(APIView):
     def get(request):
         start_date = request.query_params.get('start_date')
         end_date = request.query_params.get('end_date')
-        
+
         response = Intake.objects.filter(
             date__range=[start_date, end_date], user_id=request.user).values().order_by("date")
         return Response(response)
-
 
 
 class WaterIntake(APIView):
@@ -43,3 +42,12 @@ class WaterIntake(APIView):
             user=request.user, date=date,
             defaults={'intake': intake, })
         return Response({'intake': obj.intake, 'date': obj.date}, status=status.HTTP_200_OK)
+
+
+class WaterStreak(APIView):
+    @staticmethod
+    def get(request):
+        latest_date_of_broken_streak = Intake.objects.filter(intake__lt=8).latest('date')
+        today = datetime.date.today()
+        delta = today - latest_date_of_broken_streak.date
+        return Response(delta.days)
