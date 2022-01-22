@@ -9,6 +9,8 @@ from rest_framework.views import APIView
 
 
 class SignUpView(APIView):
+    permission_classes = []
+
     @staticmethod
     def post(request):
         username = request.data.get('username')
@@ -27,6 +29,8 @@ class SignUpView(APIView):
 
 
 class SignInView(APIView):
+    permission_classes = []
+
     @staticmethod
     def post(request):
         username = request.data.get('username')
@@ -43,6 +47,8 @@ class SignInView(APIView):
             return Response({"username": user.username}, status=status.HTTP_201_CREATED)
 
 class UserView(APIView):
+    permission_classes = []
+
     @staticmethod
     def get(request):
         if request.user.is_authenticated:
@@ -51,6 +57,8 @@ class UserView(APIView):
             return Response('You\'re not logged in.', status=status.HTTP_400_BAD_REQUEST)
 
 class SignOutView(APIView):
+    permission_classes = []
+
     @staticmethod
     def get(request):
         if not request.user.is_authenticated:
