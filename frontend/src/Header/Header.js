@@ -99,6 +99,6 @@ function logoutActionCreator(navigate) {
     dispatch(resetWaterState());
 
     // navigate users to sign in page
-    navigate('/auth/signin/');
+    navigate('/signin/');
   };
 }
