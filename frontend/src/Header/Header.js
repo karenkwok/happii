@@ -1,11 +1,14 @@
 import './Header.scss';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { get } from 'axios';
 import { useDispatch } from 'react-redux';
+import { resetAuthState } from '../features/auth/authSlice';
+import { resetWaterState } from '../features/water/waterSlice';
 
 function Header() {
+  const navigate = useNavigate();
   const today = new Date();
   const dd = String(today.getDate());
   const year = today.getFullYear();
@@ -50,8 +53,8 @@ function Header() {
   );
 
   const logoutFunction = () => {
-    dispatch(logoutActionCreator());
-  }
+    dispatch(logoutActionCreator(navigate));
+  };
 
   return (
     <header>
@@ -88,10 +91,14 @@ function Header() {
 
 export default Header;
 
-function logoutActionCreator() {
+function logoutActionCreator(navigate) {
   return async function logoutAction(dispatch, getState) {
-    const response = await get(
-      `http://localhost:8000/auth/signout/`
-    );
+    await get(`http://localhost:8000/auth/signout/`);
+
+    dispatch(resetAuthState());
+    dispatch(resetWaterState());
+
+    // navigate users to sign in page
+    navigate('/auth/signin/');
   };
 }
