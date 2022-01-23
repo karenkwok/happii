@@ -6,6 +6,7 @@ export const waterSlice = createSlice({
     dailyWater: 0,
     waterTrends: [],
     waterStreak: 0,
+    waterGoal: 0,
   },
   reducers: {
     setDailyWater: (state, action) => {
@@ -21,11 +22,14 @@ export const waterSlice = createSlice({
     },
     setWaterStreak: (state, action) => {
       state.waterStreak = action.payload;
+    },
+    setWaterGoal: (state, action) => {
+      state.waterGoal = action.payload;
     }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setDailyWater, setWaterTrends, resetWaterState, setWaterStreak } = waterSlice.actions;
+export const { setDailyWater, setWaterTrends, resetWaterState, setWaterStreak, setWaterGoal } = waterSlice.actions;
 
 export default waterSlice.reducer;
