@@ -4,13 +4,14 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus, faSquare } from '@fortawesome/free-solid-svg-icons';
-import { setDailyWater } from '../../features/water/waterSlice';
+import { setDailyWater, setWaterStreak } from '../../features/water/waterSlice';
 
 export function WaterTrack() {
   const dailyWater = useSelector((state) => state.water.dailyWater);
+  const streak = useSelector((state) => state.water.waterStreak);
 
   const dispatch = useDispatch();
-  const streak = 503;
+  dispatch(getWaterStreakActionCreator());
   const denominator = 8;
 
   let yourDate = new Date();
@@ -109,5 +110,16 @@ function getDailyWaterActionCreator(date) {
       `http://localhost:8000/water/intake/?date=${date}`
     );
     dispatch(setDailyWater(response.data));
+  };
+}
+
+// createUser is the "thunk action creator"
+function getWaterStreakActionCreator() {
+  // createUserThunk is the "thunk function"
+  return async function getWaterStreakAction(dispatch, getState) {
+    const response = await get(
+      `http://localhost:8000/water/streak/`
+    );
+    dispatch(setWaterStreak(response.data));
   };
 }
