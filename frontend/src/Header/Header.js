@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { get } from 'axios';
 import { useDispatch } from 'react-redux';
 import { resetAuthState } from '../features/auth/authSlice';
-import { resetWaterState } from '../features/water/waterSlice';
+import { resetWaterState, setWaterGoal } from '../features/water/waterSlice';
 
 function Header() {
   const navigate = useNavigate();
@@ -13,6 +13,9 @@ function Header() {
   const dd = String(today.getDate());
   const year = today.getFullYear();
   const dispatch = useDispatch();
+  const numStars = useSelector((state) => state.water.waterGoal);
+
+  dispatch(getWaterGoalActionCreator());
 
   const days = [
     'Sunday',
@@ -41,7 +44,6 @@ function Header() {
   const day = days[today.getDay()];
   const month = months[today.getMonth()];
 
-  const numStars = 5;
   const star = '⭐';
   let stars = '';
   for (let i = 0; i < numStars; i++) {
@@ -100,5 +102,16 @@ function logoutActionCreator(navigate) {
 
     // navigate users to sign in page
     navigate('/signin/');
+  };
+}
+
+// createUser is the "thunk action creator"
+function getWaterGoalActionCreator() {
+  // createUserThunk is the "thunk function"
+  return async function getWaterGoalAction(dispatch, getState) {
+    const response = await get(
+      `http://localhost:8000/water/goal/?date_period=weekly`
+    );
+    dispatch(setWaterGoal(response.data));
   };
 }
