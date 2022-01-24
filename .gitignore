@@ -3,6 +3,7 @@
 # BACKEND
 *.pyc
 happii-venv
+staticfiles
 
 # FRONTEND
 
