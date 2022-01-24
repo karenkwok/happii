@@ -93,7 +93,7 @@ function waterTrackActionCreator(intake, date) {
   // createUserThunk is the "thunk function"
   return async function waterTrackAction(dispatch, getState) {
     const response = await put(
-      `http://localhost:8000/water/intake/?date=${date}`,
+      `/water/intake/?date=${date}`,
       {
         intake,
       }
@@ -107,7 +107,7 @@ function getDailyWaterActionCreator(date) {
   // createUserThunk is the "thunk function"
   return async function getDailyWaterAction(dispatch, getState) {
     const response = await get(
-      `http://localhost:8000/water/intake/?date=${date}`
+      `/water/intake/?date=${date}`
     );
     dispatch(setDailyWater(response.data));
   };
@@ -118,7 +118,7 @@ function getWaterStreakActionCreator() {
   // createUserThunk is the "thunk function"
   return async function getWaterStreakAction(dispatch, getState) {
     const response = await get(
-      `http://localhost:8000/water/streak/`
+      `/water/streak/`
     );
     dispatch(setWaterStreak(response.data));
   };

@@ -66,7 +66,7 @@ export default SignUp;
 function signUpActionCreator(username, password, email) {
   // createUserThunk is the "thunk function"
   return async function signUpAction(dispatch, getState) {
-    const response = await post(`http://localhost:8000/auth/signup/`, {
+    const response = await post(`/auth/signup/`, {
       username,
       password,
       email,
