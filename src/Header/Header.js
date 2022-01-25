@@ -95,7 +95,7 @@ export default Header;
 
 function logoutActionCreator(navigate) {
   return async function logoutAction(dispatch, getState) {
-    await get(`http://localhost:8000/auth/signout/`);
+    await get(`/auth/signout/`);
 
     dispatch(resetAuthState());
     dispatch(resetWaterState());
@@ -110,7 +110,7 @@ function getWaterGoalActionCreator() {
   // createUserThunk is the "thunk function"
   return async function getWaterGoalAction(dispatch, getState) {
     const response = await get(
-      `http://localhost:8000/water/goal/?date_period=weekly`
+      `/water/goal/?date_period=weekly`
     );
     dispatch(setWaterGoal(response.data));
   };

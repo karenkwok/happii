@@ -126,7 +126,7 @@ export function WaterTrends() {
 function getWaterTrendsActionCreator(startDate, endDate) {
   return async function getWaterTrends(dispatch, getState) {
     const response = await get(
-      `http://localhost:8000/water/intake_trends/?start_date=${startDate}&end_date=${endDate}`
+      `/water/intake_trends/?start_date=${startDate}&end_date=${endDate}`
     );
     dispatch(setWaterTrends(response.data));
   };

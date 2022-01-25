@@ -61,7 +61,7 @@ export default App;
 
 function getUserActionCreator() {
   return async function getUserAction(dispatch, getState) {
-    const response = await get(`http://localhost:8000/auth/user/`);
+    const response = await get(`/auth/user/`);
     dispatch(setUser(response.data));
   };
 }
