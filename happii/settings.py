@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-tlp+_3%m%sntbs&-@b5jc8k%j6+2!0hp-j^%k!%b_n1sq#*9gl"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'happiiii.herokuapp.com'
