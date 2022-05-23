@@ -101,7 +101,6 @@ function waterTrackActionCreator(intake, date) {
   };
 }
 
-// createUser is the "thunk action creator"
 function getDailyWaterActionCreator(date) {
   // createUserThunk is the "thunk function"
   return async function getDailyWaterAction(dispatch, getState) {
