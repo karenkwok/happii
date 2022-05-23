@@ -98,7 +98,6 @@ function waterTrackActionCreator(intake, date) {
         intake,
       }
     );
-    // dispatch(setUser(response.data));
   };
 }
 
