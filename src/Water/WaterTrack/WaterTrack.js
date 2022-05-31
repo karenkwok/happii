@@ -92,7 +92,7 @@ export function WaterTrack() {
 function waterTrackActionCreator(intake, date) {
   // createUserThunk is the "thunk function"
   return async function waterTrackAction(dispatch, getState) {
-    const response = await put(
+    await put(
       `/water/intake/?date=${date}`,
       {
         intake,
